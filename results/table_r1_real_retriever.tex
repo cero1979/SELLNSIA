@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Experiment R1: Real TF-IDF retriever on Wikidata KG ($K{=}25$, budget $k{=}5$). The retriever is untrained --- no simulated noise.}
+\label{tab:real_retriever}
+\small
+\begin{tabular}{llccccc}
+\toprule
+$K$ & Model & \multicolumn{3}{c}{Hits@1 by hops} & F1 & Proof rate \\
+\cmidrule(lr){3-5}
+ & & 1-hop & 2-hop & 3-hop & (avg) & (\%) \\
+\midrule
+ $K{=}10$ & Neural-only & 0.780 & 0.010 & 0.000 & 0.115 & 0.0 \\
+  & Classic LP & 0.970 & 1.000 & 0.150 & 0.674 & 70.7 \\
+  & \textbf{SELL (ours)} & 0.970 & 1.000 & 0.150 & 0.674 & 70.7 \\
+\midrule
+ $K{=}25$ & Neural-only & 0.450 & 0.020 & 0.188 & 0.063 & 0.0 \\
+  & Classic LP & 1.000 & 1.000 & 0.188 & 0.690 & 72.9 \\
+  & \textbf{SELL (ours)} & 1.000 & 1.000 & 0.188 & 0.690 & 72.9 \\
+\midrule
+ $K{=}50$ & Neural-only & 0.170 & 0.020 & 0.138 & 0.021 & 0.0 \\
+  & Classic LP & 1.000 & 1.000 & 0.225 & 0.698 & 74.2 \\
+  & \textbf{SELL (ours)} & 1.000 & 1.000 & 0.225 & 0.698 & 74.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

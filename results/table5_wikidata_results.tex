@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Results on Wikidata movie KG (real-world benchmark). 1{,}804 movies, 1{,}306 directors, 2{,}610 actors, 172 genres (6{,}957 triples from Wikidata SPARQL, CC0 license).}
+\label{tab:wikidata_results}
+\small
+\begin{tabular}{llccccc}
+\toprule
+Setting & Model & \multicolumn{3}{c}{Hits@1 by hops} & F1 & Proof rate \\
+\cmidrule(lr){3-5}
+ & & 1-hop & 2-hop & 3-hop & (avg) & (\%) \\
+\midrule
+ Standard ($\eta{=}0$) & Neural-only & 1.000 & 0.010 & 0.075 & 0.226 & 0.0 \\
+   & Classic LP & 1.000 & 1.000 & 1.000 & 1.000 & 100.0 \\
+   & \textbf{SELL (ours)} & 1.000 & 1.000 & 1.000 & 1.000 & 100.0 \\
+\midrule
+ Noisy ($\eta{=}0.3$) & Neural-only & 1.000 & 0.010 & 0.075 & 0.233 & 0.0 \\
+   & Classic LP & 0.660 & 0.950 & 0.887 & 0.692 & 84.9 \\
+   & \textbf{SELL (ours)} & 0.660 & 0.950 & 0.887 & 0.692 & 84.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

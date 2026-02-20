@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Ablation study: contribution of each SELL component. 2-hop queries, $\eta=0.3$, $k=5$.}
+\label{tab:ablation}
+\small
+\begin{tabular}{lccccl}
+\toprule
+Variant & Hits@1 & F1 & Obs.\,cons. & Bud.\,used & Discipline \\
+\midrule
+\textbf{SELL (full)} & 0.958 & 0.704 & 4.1 & 4.1 & $\ell_{\mathsf{obs}}$ linear, budget enforced \\
+No budget tokens & 0.958 & 0.704 & 4.1 & 0.0 & $\ell_{\mathsf{obs}}$ linear, $k{=}\infty$ \\
+Obs as persistent & 0.958 & 0.704 & 0.0 & 4.1 & $\ell_{\mathsf{obs}} \in U$, budget enforced \\
+No subexponentials & 0.958 & 0.704 & 0.0 & 0.0 & All persistent, $k{=}\infty$ \\
+\bottomrule
+\end{tabular}
+\end{table}

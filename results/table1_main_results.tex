@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Main KGQA results: standard ($\eta=0$) vs.\ resource-aware ($\eta=0.3$) settings. Budget $k=5$ for all budgeted modes.}
+\label{tab:mainresults}
+\small
+\begin{tabular}{llccccc}
+\toprule
+Setting & Model & \multicolumn{3}{c}{Hits@1 by hops} & F1 & Proof rate \\
+\cmidrule(lr){3-5}
+ & & 1-hop & 2-hop & 3-hop & (avg) & (\%) \\
+\midrule
+Standard ($\eta{=}0$) & Neural-only & 0.980 & 0.183 & 0.217 & 0.255 & 0.0 \\
+ & Classic LP & 1.000 & 1.000 & 1.000 & 0.988 & 100.0 \\
+ & \textbf{SELL (ours)} & 1.000 & 1.000 & 1.000 & 0.988 & 100.0 \\
+\midrule
+Resource-aware ($\eta{=}0.3$) & Neural-only & 0.990 & 0.092 & 0.158 & 0.244 & 0.0 \\
+ & Classic LP & 0.680 & 0.958 & 0.958 & 0.702 & 87.9 \\
+ & \textbf{SELL (ours)} & \textbf{0.680} & \textbf{0.958} & \textbf{0.958} & 0.702 & 87.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
