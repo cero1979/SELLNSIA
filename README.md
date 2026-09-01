@@ -83,6 +83,26 @@ laptop CPU, writing `results/exp_m1_*.csv`, `results/exp_m1_summary.json`, and
 `results/table_m1_metaqa.tex` — the committed copies reproduce exactly
 (2,026 replayed proof traces, 100% verification pass rate, zero budget violations).
 
+Two follow-up experiments build on the same infrastructure:
+
+- **`metaqa_trained_experiment.py`** (Experiment M2) — a *trained* retriever front-end:
+  a relation-path classifier (TF-IDF + logistic regression, one per hop level) trained on
+  3,000 questions per hop from the MetaQA *training* split (auto-downloaded), followed by
+  path-guided subgraph expansion capped at K. Certified 3-hop Hits@1 reaches 0.833
+  (2,210 replayed traces, 100% pass, zero violations). Also verifies the naturally occurring
+  duplicate-use cases under observation multiplicity (m=1 abstains, m=2 admits).
+- **`multiplicity_experiment.py`** (Experiment M3, with `multiplicity_core.py`) — the
+  observation-multiplicity sweep m ∈ {1,2,3} for the forward-chaining false-positive
+  amplification setting (Experiment 5 machinery, reproduced exactly), showing m as a
+  controlled precision–recall dial with Classic LP as the m→∞ endpoint.
+
+Run them the same way:
+
+```bash
+PYTHONHASHSEED=0 python metaqa_trained_experiment.py
+PYTHONHASHSEED=0 python multiplicity_experiment.py
+```
+
 ---
 
 ## Reproducibility

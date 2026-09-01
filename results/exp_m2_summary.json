@@ -1,0 +1,14 @@
+{
+ "clf_test_accuracy": {
+  "1": 0.9,
+  "2": 0.82,
+  "3": 0.8266666666666667
+ },
+ "verify_total": 2210,
+ "verify_pass": 2210,
+ "budget_violations": 0,
+ "supercondriaque_proved_by_m": {
+  "1": false,
+  "2": true
+ }
+}
