@@ -57,6 +57,34 @@ Generates figures (matplotlib) and LaTeX-formatted tables and exports them to `.
 
 ---
 
+## MetaQA experiment (Experiment M1)
+
+Beyond the notebook, the repository includes a **standalone script** that runs the identical
+resource-aware SELL pipeline on the real **MetaQA** benchmark (Zhang et al., AAAI 2018):
+
+- **`sell_core.py`** — the SELL prover, trace verifier, pipeline, and retriever components,
+  extracted verbatim from `SELLExpNSy.ipynb` so both artifacts share one implementation.
+- **`metaqa_experiment.py`** — Experiment M1: 150 sampled test questions per hop level
+  (1/2/3-hop, seed 42), relation-path recovery by exact answer-set matching, three retrievers
+  (TF-IDF, BM25, and a two-round iterative TF-IDF variant) at `K ∈ {25, 50, 100}`, budget `k = 5`,
+  budget-sensitivity sweep, and full trace verification.
+
+Run it from the repository root (requires `rank-bm25` in addition to the packages above):
+
+```bash
+pip install rank-bm25
+PYTHONHASHSEED=0 python metaqa_experiment.py
+```
+
+MetaQA data (`kb.txt` + vanilla `qa_test` files, CC license) is **auto-downloaded** to
+`./metaqa_data/` from the Hugging Face mirror `camazlucas/MetaQA` on first run
+(~22 MB; the folder is git-ignored). The run is deterministic and completes in ~6 minutes on a
+laptop CPU, writing `results/exp_m1_*.csv`, `results/exp_m1_summary.json`, and
+`results/table_m1_metaqa.tex` — the committed copies reproduce exactly
+(2,026 replayed proof traces, 100% verification pass rate, zero budget violations).
+
+---
+
 ## Reproducibility
 
 - The notebook sets `SEED = 42` for deterministic behavior of stochastic components (as far as the environment allows).

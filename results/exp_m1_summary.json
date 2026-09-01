@@ -1,0 +1,24 @@
+{
+ "build_stats": {
+  "1": {
+   "admitted": 150,
+   "no_exact_path": 20
+  },
+  "2": {
+   "admitted": 150,
+   "capped": 1
+  },
+  "3": {
+   "admitted": 150,
+   "capped": 12
+  }
+ },
+ "verify_total": 2026,
+ "verify_pass": 2026,
+ "budget_violations": 0,
+ "n_queries": {
+  "1": 150,
+  "2": 150,
+  "3": 150
+ }
+}
